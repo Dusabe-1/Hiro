@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C File Handling - Creating Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0 20px 40px 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            padding-left: 400px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+      .section  code {
+            font-family: Consolas, monospace;
+            color: white;
+        }
+        code{
+            color: black;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: black;
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+            color: black;
+        }
+        /* Header style */
+        .header {
+            background-color: green;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            padding: 0 10px;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            padding-left: 10px;
+            margin-right: 15px;
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width:680px) {
+            h1 {
+                padding-left: 50px;
+                font-size: 18px;
+            }
+            h2{
+                font-size: 18px;
+                color: white !important;
+                padding-left: 50px;
+            }
+            p {
+                font-size: 12px;
+                color: black;
+            }
+            .header {
+                justify-content: flex-start;
+            }
+        }
+        h3{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY</h2>
+    </div>
+
+    <h1>C File Handling - Creating Files</h1>
+
+    <p style="color: white;">This page explains how to create and write to files in C programming using<code style="color: green">
+        fopen()</code> and related functions.</p>
+
+    <div class="section">
+        <h3>1. Opening a File for Writing</h3>
+        <p>Use <code style="color: blue;">fopen()</code> with mode <code style="color: blue" >"w"</code> to create a new file or overwrite an existing one.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("example.txt", "w");
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    // Write text to file
+    fprintf(fp, "Hello, file!\n");
+    fclose(fp);
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b></p>
+        <ul>
+            <li><code style="color: green">fopen("example.txt", "w")</code> opens the file for writing (creates if not exists).</li>
+            <li><code>fprintf()</code style="color: green"> writes formatted text to the file.</li>
+            <li><code style="color: green">fclose()</code> closes the file.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Checking if File Opened Successfully</h3>
+        <pre><code>if (fp == NULL) {
+    printf("Error opening file!\n");
+    return 1;
+}</code></pre>
+        <p>This prevents the program from crashing if the file cannot be opened.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Example: Create and Write Multiple Lines</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("data.txt", "w");
+    if (fp == NULL) {
+        printf("Could not create file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "Line 1: Welcome to Hiro Academy!\n");
+    fprintf(fp, "Line 2: Learning C file handling.\n");
+    fclose(fp);
+    printf("File created and written successfully.\n");
+    return 0;
+}</code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">File created and written successfully.</div>
+    </div>
+
+    <div class="section">
+        <h3>4. File Modes Summary</h3>
+        <ul>
+            <li><code style="color: green">"r"</code> — Open for reading (file must exist)</li>
+            <li><code style="color: green">"w"</code> — Open for writing (creates new or overwrites)</li>
+            <li><code style="color: green">"a"</code> — Open for appending (creates if not exists)</li>
+            <li><code style="color: green">"r+"</code> — Open for reading and writing</li>
+        </ul>
+    </div>
+
+</body>
+</html>

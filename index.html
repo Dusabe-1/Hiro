@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIRO</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            box-sizing: border-box ;
+        }
+        body{
+            background-color: black;
+        }
+    .nav-wrapper {
+  display: flex;
+  align-items: center;
+  osition: relative;
+  overflow: hidden;
+  background-color: #333;
+  padding: 0 10px;
+  height: 30px;
+}
+
+.nav-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: none;              /* Chrome/Safari */
+}
+
+.nav-scroll a {
+  display: inline-block;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-scroll a:hover {
+  background-color: #575757;
+}
+
+.scroll-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+.scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+h2{
+    color:white;
+    text-align: center;
+    padding-left: 400px;
+    padding-top:10px;
+    padding-bottom: 20px;
+}
+.container{
+    background-color:black;
+    height: 100%;
+    position: fixed;
+    overflow-x: hidden;
+    width: 0;
+    transition :1s;
+    
+}
+.container a,button{
+    display: block;
+    padding: 10px 10px 10px 30px;
+    color: white;
+    margin: 5px;
+    text-decoration: none;
+    background-color: #222;
+}
+
+.container a:hover{
+background-color: green;
+}
+open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 0px;
+    border: none;
+
+}
+#close-btn{
+    color :white;
+border: none;
+margin-left:190px;
+font-size: 30px;
+background-color: transparent;
+}
+
+.header{
+    display:flex;
+}
+ h1 {
+            color: #2e8b57;
+        }
+        code {
+            background-color: #222;
+            padding: 2px 4px;
+            font-family: monospace;
+        }
+        pre {
+            background-color:#222;
+            padding: 10px;
+            overflow-x: auto;
+            height: 200px;
+            color: white;
+        }
+        .containe {
+            max-width: 800px;
+            margin-left: 20px;
+            margin-top: 30px;
+            background: transparent;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        p{
+            color: white;
+        }
+        li{
+            color: white;
+        }
+        h3{
+            color: white;
+            padding: 10px;
+        }
+        @media(max-width:600px){
+            
+                    .header{
+            background-color: green;
+            display: flex;
+            height: 45px;
+        }
+                    h2{
+            padding-left: 90px;
+            color:white;
+           text-align: center;
+          font-size: 20px;
+
+        }
+        #open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    padding-left: 6px;
+    border: none;
+    padding-top: 2px;
+
+}
+
+      #demo{
+            background: #222;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }    }
+#more a{
+    display: block;
+    padding: 10px 10px 10px 30px;
+    color: white;
+    margin: 5px;
+    text-decoration: none;
+    background-color: #222;
+}
+#more{
+    display: none;
+}
+img{
+    width :100px;
+    height:100px;
+    border-radius: 50%;
+    margin-left: 30px;
+
+}
+.ellie{
+    
+    display :flex;
+}
+#ellie{
+    padding-left: 10px;
+    padding-top: 30px;
+}
+.ellie p{
+    font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="container" id="sideNav">
+        <button id="close-btn" onclick="closeNav()">&times; </button>
+        
+<a href="c-project1.html"> 🔘C project Level 1</a>
+<a href="beginner 2.html">🔘C project Level 2</a>
+<a href="beginner 3.html">🔘C project Level 3</a>
+<a href="beginner 4.html">🔘C project Level 4</a>
+<a href="beginner 5.html">🔘C project Level 5</a>
+<a href="simple banking system.html">🔘simple banking system</a>
+<a href="inventory management system.html">🔘inventory management system</a>
+<a href="library management system.html">🔘 library management system</a>
+<a href="students management system.html">🔘students management system</a>
+
+    </div>
+    <div class="header">
+    <button id="open-btn"  onclick="openNav()"> &#9776; </button>
+    
+    <h2>HIRO ACADEMY</h2>
+</div>
+
+<div class="nav-wrapper">
+  <button class="scroll-btn left" onclick="scrollNav(-150)">&#8249;</button>
+  
+  <div class="nav-scroll" id="navScroll">
+    <a href="#">Introduction</a>
+    <a href="syntax1.html">syntax</a>
+    <a href="outupt.html">Output</a>
+    <a href="comment.html">Comments</a>
+    <a href="variables.html">Variables</a>
+    <a href="Data types.html">Data types</a>
+    <a href="constants.html">Constants</a>
+    <a href="operators.html">Operators</a>
+    <a href="boleans.html">Boaleans</a>
+    <a href="if else.html">If else</a>
+    <a href="switch.html">Switch</a>
+    <a href="loops.html">Loops </a>
+    <a href="Break and continue.html">Break and continue</a>
+    <a href="arrays.html">Arrays</a>
+    <a href="user input.html">User inputs</a>
+    <a href="function.html">Functions</a>
+    <button onclick="document.getElementById('more').style.display='block'">More</button>
+  </div>
+  
+  <button class="scroll-btn right" onclick="scrollNav(150)">&#8250;</button>
+</div>
+<div id="more">
+ <a href="functions parameters.html">Functions parammaters</a> 
+ <a href="function declaration.html">Functions Declaration</a> 
+  <a href="math functions.html">Math functions</a> 
+ <a href="create files.html">Create Files</a> 
+  <a href="write files.html">Write files</a> 
+ <a href="read files.html">Read files</a> 
+  <a href="memory management.html">Memmory management</a> 
+ <a href="input validation.html">Inputs validation</a> 
+</div>
+    <div class="containe">
+        <h1>Introduction to C Programming</h1><br><br>
+        <p>
+            C is a powerful, general-purpose programming language that has been widely used for system and application development since its creation in the early 1970s.
+        </p>
+
+        <h3>Why Learn C?</h3>
+        <ul>
+            <li>It's the foundation of many other languages like C++, Java, and Python.</li>
+            <li>It's widely used in systems programming (like operating systems and embedded systems).</li>
+            <li>It helps you understand how computers work at a lower level.</li>
+        </ul>
+
+        <h3>Basic Structure of a C Program</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre><br><br>
+
+        <p>This is a simple C program that prints <code style="color: green;">Hello, World!</code> to the screen.</p>
+
+        <h3>Key Concepts in C</h3>
+        <ul>
+            <li>Variables and Data Types</li>
+            <li>Control Structures (if, else, loops)</li>
+            <li>Functions</li>
+            <li>Pointers</li>
+            <li>Arrays and Strings</li>
+            <li>Structures</li>
+            <li>File Handling</li>
+        </ul>
+
+        <h3>Getting Started</h3>
+        <p>To start writing and running C programs, you need:</p>
+        <ul>
+            <li>A text editor (e.g., VS Code, Sublime Text, Notepad++)</li>
+            <li>A C compiler (e.g., GCC)</li>
+        </ul>
+
+        <p>After writing your C code in a file with a <code style="color: blue;">.c</code> extension, compile it using a compiler and run the output.</p>
+
+        <hr>
+        <p><em>Happy Coding!</em></p>
+    </div>
+    <div class="ellie">
+        
+    <img src="ellie Dusabe.jpg">
+    
+<h2 id="ellie">Ellie DUSABE <p>
+    elied@gmail.com
+</p> </h2>    </div>
+<script>
+    const navScroll = document.getElementById('navScroll');
+const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
+
+function scrollNav(amount) {
+  navScroll.scrollBy({ left: amount, behavior: 'smooth' });
+  updateButtons();
+}
+
+function updateButtons() {
+  leftBtn.disabled = navScroll.scrollLeft <= 0;
+  rightBtn.disabled = navScroll.scrollLeft + navScroll.clientWidth >= navScroll.scrollWidth - 1;
+}
+
+// Run on load and on scroll
+navScroll.addEventListener('scroll', updateButtons);
+window.addEventListener('load', updateButtons);
+
+function openNav(){
+    document.getElementById('sideNav').style.width="250px";
+}
+
+function closeNav(){
+    document.getElementById('sideNav').style.width="0";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Comments Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            font-size: 13px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+                .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+h2 {
+            color: white;
+            padding-left: 300px;
+        }
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color:white;
+        }
+         @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                
+                font-size: 18px;
+            }
+             p{
+            font-size: 15px;
+        }
+        h2{
+            padding-left: 60px;
+        }
+        .header{
+            background-color: green;
+            display: flex;
+        }
+        }
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C Programming -  Comments</h1>
+    <p>Comments in C are notes written in the code to explain what it does. The compiler ignores them, so they do not affect the program’s execution. They are very useful for making code more readable.</p>
+
+    <div class="section">
+        <h3>1. Why Use Comments?</h3>
+        <ul>
+            <li>To explain complex logic for future reference.</li>
+            <li>To make code easier for others to understand.</li>
+            <li>To temporarily disable parts of code during testing.</li>
+            <li>To leave reminders for yourself or other programmers.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Types of Comments in C</h3>
+        <h3>Single-line Comment (<code>//</code>)</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    // This prints a greeting message
+    printf("Hello, World!\n");
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Hello, World!</div>
+        <p>Everything after <code>//</code> until the end of the line is ignored by the compiler.</p>
+
+        <h3>Multi-line Comment (<code>/* ... */</code>)</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    /* This is a multi-line comment.
+       It can span across multiple lines.
+       The compiler ignores all of it. */
+    printf("C Programming\n");
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">C Programming</div>
+        <p>Multi-line comments start with <code>/*</code> and end with <code>*/</code>.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Using Comments to Disable Code</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("First line\n");
+
+    // printf("This line is disabled and won't run\n");
+
+    printf("Last line\n");
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">
+First line<br>
+Last line
+        </div>
+        <p>This is useful when testing or debugging code.</p>
+    </div>
+
+    <div class="section">
+        <h3>4. Nested Comments Problem</h3>
+        <p><b>Note:</b> C does not support nested comments.</p>
+        <pre><code>/* This is a comment
+   /* This will cause an error */
+   printf("Hello"); 
+*/ 
+        </code></pre>
+        <p>The above will cause a compilation error. You cannot place a comment inside another comment.</p>
+    </div>
+
+    <div class="section">
+        <h3>5. Best Practices for Comments</h3>
+        <ul>
+            <li>Keep comments short and relevant.</li>
+            <li>Don’t state the obvious (e.g., <code>// add 1 to x</code> for <code>x++;</code>).</li>
+            <li>Update comments when the code changes.</li>
+            <li>Use comments to explain <b>why</b>, not just <b>what</b> the code does.</li>
+            <li>For large projects, include a comment at the top of the file describing its purpose.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>6. Example: Good Commenting Style</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+/* Program: Simple Interest Calculator
+   Author: Your Name
+   Date: 2025-08-09
+   Description: This program calculates simple interest
+   using the formula SI = (P * R * T) / 100
+*/
+
+int main() {
+    float principal = 1000.0; // Principal amount
+    float rate = 5.0;         // Annual interest rate in percent
+    float time = 2.0;         // Time in years
+
+    // Calculate simple interest
+    float SI = (principal * rate * time) / 100;
+
+    // Display the result
+    printf("Simple Interest = %.2f\n", SI);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Simple Interest = 100.00</div>
+    </div>
+
+</body>
+</html>
+

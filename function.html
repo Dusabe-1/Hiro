@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+       
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+        .note {
+            background: #fffae6;
+            padding: 8px;
+            border-left: 5px solid orange;
+            border-radius: 5px;
+        }
+                .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color:black;
+        }
+        @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                
+                font-size: 18px;
+            }
+             p{
+            font-size: 15px;
+        }
+     h2{
+    font-size: 18px;
+    color:white;padding-left:90px;
+            }
+     .header{
+     background-color: green;
+     display: flex;
+      height: 45px;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+<h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C Programming - Functions</h1>
+    <p style="color:white;">
+        In C, a <b>function</b> is a block of code that performs a specific task.  
+        Functions help break programs into smaller, reusable parts.
+    </p>
+
+    <div class="section">
+        <h3>1. Function Syntax</h3>
+        <pre><code>return_type function_name(parameters) {
+    // function body
+    return value; // if return_type is not void
+}
+        </code></pre>
+        <div class="note">
+            - <b>return_type</b>: Type of value the function returns (<code>int</code>, <code>float</code>, <code>void</code>, etc.)<br>
+            - <b>function_name</b>: Name of the function (should be descriptive)<br>
+            - <b>parameters</b>: Data passed to the function (optional)
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>2. Example: Function with No Parameters</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void greet() {
+    printf("Hello, welcome to C programming!\n");
+}
+
+int main() {
+    greet(); // function call
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Hello, welcome to C programming!</div>
+    </div>
+
+    <div class="section">
+        <h3>3. Example: Function with Parameters</h3>
+  <pre><code>#include &lt;stdio.h&gt;
+
+void printSum(int a, int b) {
+    printf("Sum = %d\n", a + b);
+}
+
+int main() {
+    printSum(5, 7);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Sum = 12</div>
+    </div>
+
+    <div class="section">
+        <h3>4. Example: Function with Return Value</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int multiply(int x, int y) {
+    return x * y;
+}
+
+int main() {
+    int result = multiply(4, 6);
+    printf("Result = %d\n", result);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Result = 24</div>
+    </div>
+
+    <div class="section">
+        <h3>5. Function Declaration and Definition</h3>
+        <p>You can declare a function before <code>main()</code> and define it later.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function declaration
+float areaCircle(float radius);
+
+int main() {
+    printf("Area = %.2f\n", areaCircle(3.5));
+    return 0;
+}
+
+// Function definition
+float areaCircle(float radius) {
+    return 3.14 * radius * radius;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Area = 38.47</div>
+    </div>
+
+    <div class="section">
+        <h3>6. Types of Functions</h3>
+        <ul>
+            <li><b>Library Functions</b> - Predefined (e.g., <code>printf()</code>, <code>scanf()</code>)</li>
+            <li><b>User-defined Functions</b> - Created by the programmer</li>
+        </ul>
+    </div>
+
+</body>
+</html>

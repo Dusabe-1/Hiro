@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C - Syntax </title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+           
+            background-color: black;
+        }
+        
+
+       
+         
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 6px;
+            border-radius: 5px;
+            overflow-x: auto;
+            
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .section {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+           
+        }
+        h2{
+    color:white;
+    text-align: center;
+    padding-left:300px;
+    padding-top:10px;
+}
+ h1{
+            color: white;
+            padding-left: 400px;
+        }
+        
+
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+@media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                
+                font-size: 18px;
+            }
+            p{
+                font-size: 14px;
+                color: black;
+                padding: 10px;
+            }
+                h2{
+    font-size: 18px;
+    color:white;padding-left:90px;
+            }
+     .header{
+     background-color: green;
+     display: flex;
+      height: 45px;
+                
+            }
+              .section {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+           margin-left: 10px;
+           margin-right: 10px;
+        }
+        h1{
+            font-size: 20px;
+            padding: 15px 15px 15px 100px;
+        }
+        }
+    </style>
+</head>
+<body>
+
+        <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+    
+</div>
+
+    <h1>C- Syntax</h1>
+    <p style="color: white;">This page explains the basic syntax of the C programming language with examples.</p>
+
+    <div class="section">
+        <h3>1. Basic Structure of a C Program</h3>
+        <pre><code>#include &lt;stdio.h&gt;  // Preprocessor directive
+
+int main() {         // Main function
+    printf("Hello, Ellie!\n"); // Output statement
+    return 0;        // Exit status
+}
+        </code></pre>
+        <p><b>Explanation:</b></p>
+        <ul>
+            <li><code>#include &lt;stdio.h&gt;</code> → Includes standard input/output library.</li>
+            <li><code>int main()</code> → Entry point of the program.</li>
+            <li><code>printf()</code> → Prints text to the console.</li>
+            <li><code>return 0;</code> → Ends the program successfully.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Variables and Data Types</h3>
+        <pre><code>int age = 25;       // Integer
+float price = 10.5; // Floating point
+char grade = 'A';   // Character
+        </code></pre>
+        <p>Variables store data. Data types tell the compiler what kind of data is stored.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Comments</h3>
+        <pre><code>// Single-line comment
+
+/* Multi-line
+   comment */
+        </code></pre>
+        <p>Comments are ignored by the compiler and used to explain code.</p>
+    </div>
+
+    <div class="section">
+        <h3>4. Control Statements</h3>
+        <pre><code>if (age &gt;= 18) {
+    printf("You are an adult.\n");
+} else {
+    printf("You are a minor.\n");
+}
+
+for (int i = 0; i &lt; 5; i++) {
+    printf("%d\n", i);
+}
+        </code></pre>
+        <p><b>Explanation:</b></p>
+        <ul>
+            <li><code>if...else</code> → Conditional branching.</li>
+            <li><code>for</code> → Loop that repeats code a fixed number of times.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>5. Functions</h3>
+        <pre><code>int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int sum = add(3, 4);
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+        </code></pre>
+        <p style="color:black;">Functions group code into reusable blocks. They can take parameters and return values.</p>
+    </div>
+
+</body>
+</html>

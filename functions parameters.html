@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C Function Parameters Explanation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0 20px 40px 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333; /* Will override to white in media queries */
+        }
+        h1 {
+            padding-left: 400px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+        code {
+            font-family: Consolas, monospace;
+            color: #f8f8f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: black;
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+            color: black;
+        }
+        /* Header style */
+        .header {
+            background-color: green;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            padding: 0 10px;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            padding-left: 10px;
+            margin-right: 15px;
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width:680px) {
+            h1 {
+                padding-left: 100px;
+                font-size: 18px;
+            }
+            h2, h3 {
+                font-size: 18px;
+                color: black !important;
+                padding-left: 90px;
+            }
+            p {
+                font-size: 12px;
+            }
+            .header {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY</h2>
+    </div>
+
+    <h1>C Function Parameters Explanation</h1>
+
+    <p>This page explains how function parameters work in C programming with examples.</p>
+
+    <div class="section">
+        <h3>1. What Are Function Parameters?</h3>
+        <p>A <strong>function parameter</strong> is a variable declared in the function definition that accepts data when the function is called.</p>
+    </div>
+
+    <div class="section">
+        <h3>2. Passing Parameters by Value</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void increment(int x) {
+    x = x + 1;
+}
+
+int main() {
+    int a = 5;
+    increment(a);
+    printf("a = %d\n", a);
+    return 0;
+}</code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">a = 5</div>
+        <p>The function gets a copy of <code>a</code>, so <code>a</code> is unchanged outside.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Passing Parameters by Pointer (Reference)</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void increment(int *x) {
+    *x = *x + 1;
+}
+
+int main() {
+    int a = 5;
+    increment(&a);
+    printf("a = %d\n", a);
+    return 0;
+}</code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">a = 6</div>
+        <p>Passing the address lets the function modify the original variable.</p>
+    </div>
+
+    <div class="section">
+        <h3>4. Multiple Parameters</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int sum = add(3, 4);
+    printf("Sum = %d\n", sum);
+    return 0;
+}</code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Sum = 7</div>
+        <p>Functions can accept multiple parameters separated by commas.</p>
+    </div>
+
+    <div class="section">
+        <h3>5. Summary</h3>
+        <ul>
+            <li>Parameters are variables declared in function definitions.</li>
+            <li>Arguments are actual values passed when calling the function.</li>
+            <li>Passing by value copies data; changes inside do not affect the original.</li>
+            <li>Passing by pointer allows the function to modify the original variable.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

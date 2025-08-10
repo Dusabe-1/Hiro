@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Loops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: black
+        }
+        h1{
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+        ul {
+            margin-top: 5px;
+        }
+                .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+    h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color: white;
+        }
+                   @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                font-size: 18px;
+            }
+             p{
+                 color : black;
+            font-size: 12px;
+        }
+                h2{
+                font-size: 18px;
+                color:white;padding-left: 90px;
+            }
+            .header{
+                background-color: green;
+                display: flex;
+                height: 45px;
+                
+            }
+        }
+         
+    </style>
+</head>
+<body>
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+    
+</div>
+
+    <h1>C Programming - Loops</h1>
+    <p style="color: white;">
+        In C, loops allow you to execute a block of code repeatedly based on a condition.  
+        There are three main types of loops:
+        <b>for</b>, <b>while</b>, and <b>do while</b>.
+    </p>
+
+    <div class="section">
+        <h3>1. for Loop</h3>
+        <p>The <code>for</code> loop is used when you know in advance how many times you want to execute a statement or a block of statements.</p>
+        <h3>Syntax:</h3>
+        <pre><code>for (initialization; condition; increment/decrement) {
+    // code to be executed
+}
+        </code></pre>
+        <h3>Example:</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i &lt;= 5; i++) {
+        printf("i = %d\n", i);
+    }
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">i = 1<br>i = 2<br>i = 3<br>i = 4<br>i = 5</div>
+        <ul>
+            <li><b>Initialization:</b> Runs only once at the start.</li>
+            <li><b>Condition:</b> Checked before each iteration. If false, the loop ends.</li>
+            <li><b>Increment/Decrement:</b> Changes loop variable after each iteration.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. while Loop</h3>
+        <p>The <code>while</code> loop is used when you don't know beforehand how many times you want to loop. It runs while the condition is true.</p>
+        <h3>Syntax:</h3>
+        <pre><code>while (condition) {
+    // code to be executed
+}
+        </code></pre>
+        <h3>Example:</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+    while (i &lt;= 5) {
+        printf("i = %d\n", i);
+        i++;
+    }
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">i = 1<br>i = 2<br>i = 3<br>i = 4<br>i = 5</div>
+        <p><b>Note:</b> If the condition is false initially, the loop body will not run at all.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. do while Loop</h3>
+        <p>The <code>do while</code> loop is similar to <code>while</code> but the body executes at least once before checking the condition.</p>
+        <h3>Syntax:</h3>
+        <pre><code>do {
+    // code to be executed
+} while (condition);
+        </code></pre>
+        <h3>Example:</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+    do {
+        printf("i = %d\n", i);
+        i++;
+    } while (i &lt;= 5);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">i = 1<br>i = 2<br>i = 3<br>i = 4<br>i = 5</div>
+        <p><b>Note:</b> Even if the condition is false at the beginning, the loop body will execute once.</p>
+    </div>
+
+    <div class="section">
+        <h3>4. Infinite Loops</h3>
+        <pre><code>// Example of an infinite loop
+#include &lt;stdio.h&gt;
+
+int main() {
+    while (1) {
+        printf("This will run forever!\n");
+        break; // use break to exit loop
+    }
+    return 0;
+}
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h3>5. Loop Control Statements</h3>
+        <ul>
+            <li><b>break:</b> Terminates the loop immediately.</li>
+            <li><b>continue:</b> Skips the rest of the current iteration and goes to the next one.</li>
+        </ul>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i &lt;= 5; i++) {
+        if (i == 3) continue; // skip 3
+        if (i == 5) break;    // stop loop
+        printf("%d\n", i);
+    }
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">1<br>2<br>4</div>
+    </div>
+
+</body>
+</html>

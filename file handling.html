@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple File Handling</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: #0f0;
+        padding: 20px;
+    }
+    pre {
+        background: #222;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+<h1>Simple File Handling (Write &amp; Read)</h1>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp;
+    char data[100];
+
+    fp = fopen("file.txt", "w");
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    printf("Enter text to write: ");
+    gets(data);
+    fputs(data, fp);
+    fclose(fp);
+
+    fp = fopen("file.txt", "r");
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    printf("\nReading from file:\n");
+    while (fgets(data, sizeof(data), fp) != NULL)
+        printf("%s", data);
+    fclose(fp);
+
+    return 0;
+}
+</pre>
+<nav>
+    <a href="fibonacci.html">&laquo; Previous: Fibonacci Series</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Output Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           
+            background-color: black;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+
+
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color: blackj;
+        }
+        @media(max-width:680px){
+            h1{
+                padding-left: 100px;
+                
+                font-size: 18px;
+            }
+            p{
+                font-size: 12px;
+            }
+            h2{
+                font-size: 18px;
+                color:white;padding-left: 90px;
+            }
+            .header{
+                background-color: green;
+                display: flex;
+                height: 45px;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C  -Output </h1>
+    <p style="color:white;">This page explains how to display output in C programming using the <code>printf()</code> function.</p>
+
+    <div class="section">
+        <h3>1. Basic Text Output</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Hello, World!</div>
+        <p>The <code>\n</code> creates a new line after the text.</p>
+    </div>
+
+    <div class="section">
+        <h3>2. Printing Variables</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 20;
+    printf("I am %d years old.\n", age);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">I am 20 years old.</div>
+        <p><code>%d</code> is a format specifier for integers.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Format Specifiers</h3>
+        <p>Common format specifiers used in <code>printf()</code>:</p>
+        <ul>
+            <li><code>%d</code> → Integer</li>
+            <li><code>%f</code> → Floating-point number</li>
+            <li><code>%c</code> → Single character</li>
+            <li><code>%s</code> → String (text)</li>
+        </ul>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 42;
+    float price = 9.99;
+    char grade = 'A';
+    char name[] = "Ellie";
+
+    printf("Number: %d\n", num);
+    printf("Price: %.2f\n", price);
+    printf("Grade: %c\n", grade);
+    printf("Name: %s\n", name);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">
+Number: 42<br>
+Price: 9.99<br>
+Grade: A<br>
+Name: Ellie
+        </div>
+        <p><code>%.2f</code> means show the float with 2 decimal places.</p>
+    </div>
+
+    <div class="section">
+        <h3>4. Printing Multiple Values</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 10;
+    printf("a = %d, b = %d\n", a, b);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">a = 5, b = 10</div>
+        <p>Multiple variables can be printed in one statement by matching each variable to a format specifier.</p>
+    </div>
+
+    <div class="section">
+        <h3>5. Special Characters in Output</h3>
+        <p>Escape sequences let you control formatting:</p>
+        <ul>
+            <li><code>\n</code> → New line</li>
+            <li><code>\t</code> → Tab space</li>
+            <li><code>\\</code> → Backslash</li>
+            <li><code>\"</code> → Double quote</li>
+        </ul>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Line1\nLine2\n");
+    printf("Name:\tEllie\n");
+    printf("She said, \"Hello!\"\n");
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">
+Line1<br>
+Line2<br>
+Name: Ellie DUSABE<br>
+She said, "Hello!"
+        </div>
+    </div>
+
+</body>
+</html>

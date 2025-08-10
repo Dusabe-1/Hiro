@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C  - switch Statement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+        ul {
+            margin-top: 5px;
+        }
+        .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color: black;
+        }
+        
+           @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                font-size: 18px;
+            }
+             p{
+            font-size: 12px;
+            color :black;
+        }
+                h2{
+                font-size: 18px;
+                color:white;padding-left: 90px;
+            }
+            .header{
+                background-color: green;
+                display: flex;
+                height: 45px;
+                
+            }
+        }
+         
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C  - switch Statement</h1>
+    <p style="color: white;">
+        The <b>switch</b> statement in C is used to execute one block of code among many options, based on the value of an expression.  
+        It is a cleaner alternative to writing multiple <code>if-else if</code> conditions when checking for equality.
+    </p>
+
+    <div class="section">
+        <h3>1. Syntax</h3>
+        <pre><code>switch (expression) {
+    case constant1:
+        // code for case 1
+        break;
+    case constant2:
+        // code for case 2
+        break;
+    ...
+    default:
+        // code if no case matches
+}
+        </code></pre>
+        <ul>
+            <li><b>expression</b> is evaluated once.</li>
+            <li>Its value is compared with each <b>case constant</b>.</li>
+            <li>If a match is found, the corresponding block runs until a <code>break</code> statement or end of switch.</li>
+            <li>If no match is found, the <b>default</b> block (if present) runs.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Example - Basic switch</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int day = 3;
+
+    switch (day) {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        case 6:
+            printf("Saturday\n");
+            break;
+        case 7:
+            printf("Sunday\n");
+            break;
+        default:
+            printf("Invalid day\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Wednesday</div>
+    </div>
+
+    <div class="section">
+        <h3>3. Example - Without break</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int number = 2;
+
+    switch (number) {
+        case 1:
+            printf("One\n");
+        case 2:
+            printf("Two\n");
+        case 3:
+            printf("Three\n");
+        default:
+            printf("Other\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Two<br>Three<br>Other</div>
+        <p>
+            Without <code>break</code>, execution continues to the next cases ("fall-through behavior").
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>4. Example - Grouping cases</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char grade = 'B';
+
+    switch (grade) {
+        case 'A':
+        case 'B':
+            printf("Well done!\n");
+            break;
+        case 'C':
+            printf("Good effort!\n");
+            break;
+        default:
+            printf("Invalid grade\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Well done!</div>
+    </div>
+
+    <div class="section">
+        <h3>5. Notes</h3>
+        <ul>
+            <li>The <code>expression</code> in <code>switch</code> must be an integer type or character (e.g., <code>int</code>, <code>char</code>, <code>enum</code>).</li>
+            <li>Case labels must be constants (not variables or ranges).</li>
+            <li>The <code>break</code> statement prevents fall-through to the next case.</li>
+            <li>The <code>default</code> case is optional but recommended to handle unexpected values.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

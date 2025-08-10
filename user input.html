@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - User Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+       
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+        .note {
+            background: #fffae6;
+            padding: 8px;
+            border-left: 5px solid orange;
+            border-radius: 5px;
+        }
+               .header{
+    display: flex;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+    text-decoration: none;
+
+}
+
+p{
+    color: white;
+}
+   @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                
+                font-size: 18px;
+            }
+             p{
+            font-size: 12px;
+        }
+        h2{
+            padding: 10px;
+            color: black;
+        }
+        .header{
+            display: flex;
+            background-color: green;
+        }
+        }
+         
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h1>HIRO ACADEMY </h1>
+</div>
+
+    <h1>C - User Input</h1>
+    <p>
+        In C, we can take input from the user using standard input functions.  
+        The most common functions are <b>scanf()</b>, <b>gets()</b>, and <b>fgets()</b>.
+    </p>
+
+    <div class="section">
+        <h2>1. Using scanf()</h2>
+        <p>
+            The <b>scanf()</b> function reads formatted input from the user.  
+            Syntax:
+        </p>
+        <pre><code>scanf("format_specifier", &variable);</code></pre>
+
+        <p><b>Example: Reading an Integer</b></p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    printf("You are %d years old.\n", age);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output (user enters 21):</b></p>
+        <div class="output-box">
+            Enter your age: 21<br>
+            You are 21 years old.
+        </div>
+        <div class="note">
+            Always use the <b>&</b> symbol before the variable name in scanf (except for strings).
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Reading Multiple Inputs</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    printf("Sum = %d\n", a + b);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output (user enters "4 5"):</b></p>
+        <div class="output-box">
+            Enter two numbers: 4 5<br>
+            Sum = 9
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Taking String Input</h2>
+        <p>
+            Strings can be read using <b>scanf()</b>, but it stops reading at the first space.  
+            For multi-word strings, use <b>gets()</b> or <b>fgets()</b>.
+        </p>
+
+        <h3>Using scanf()</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char name[20];
+    printf("Enter your name: ");
+    scanf("%s", name);
+    printf("Hello, %s!\n", name);
+    return 0;
+}
+        </code></pre>
+        <p><b>Input:</b> John<br><b>Output:</b></p>
+        <div class="output-box">Hello, Elie DUSABE!</div>
+
+        <h3>Using fgets() (for multiple words)</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char fullName[50];
+    printf("Enter your full name: ");
+    fgets(fullName, sizeof(fullName), stdin);
+    printf("Hello, %s", fullName);
+    return 0;
+}
+        </code></pre>
+        <div class="note">
+            <b>Note:</b> <code>fgets()</code> reads the newline character (<code>\n</code>) as well.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Example: Reading Different Data Types</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    float height;
+    char grade;
+    printf("Enter age, height, and grade: ");
+    scanf("%d %f %c", &age, &height, &grade);
+
+    printf("Age: %d\n", age);
+    printf("Height: %.2f\n", height);
+    printf("Grade: %c\n", grade);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output (user enters "20 5.9 A"):</b></p>
+        <div class="output-box">
+            Age: 20<br>
+            Height: 5.90<br>
+            Grade: A
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inventory Management System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        padding: 20px;
+    }
+    pre {
+        background: #222;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+    h1{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<h1>Inventory Management System</h1>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX 100
+
+struct Item {
+    int id;
+    char name[50];
+    int quantity;
+};
+
+struct Item inventory[MAX];
+int count = 0;
+
+void addItem() {
+    if (count &gt;= MAX) {
+        printf("Inventory full!\n");
+        return;
+    }
+    printf("Enter Item ID: ");
+    scanf("%d", &inventory[count].id);
+    printf("Enter Item Name: ");
+    getchar(); // clear newline
+    fgets(inventory[count].name, sizeof(inventory[count].name), stdin);
+    inventory[count].name[strcspn(inventory[count].name, "\n")] = 0;
+    printf("Enter Quantity: ");
+    scanf("%d", &inventory[count].quantity);
+    count++;
+    printf("Item added successfully!\n");
+}
+
+void displayItems() {
+    if (count == 0) {
+        printf("Inventory is empty.\n");
+        return;
+    }
+    printf("\nInventory Items:\n");
+    for (int i = 0; i &lt; count; i++) {
+        printf("ID: %d | Name: %s | Quantity: %d\n",
+               inventory[i].id,
+               inventory[i].name,
+               inventory[i].quantity);
+    }
+}
+
+void updateQuantity() {
+    int id, i, qty;
+    printf("Enter Item ID to update quantity: ");
+    scanf("%d", &id);
+    for (i = 0; i &lt; count; i++) {
+        if (inventory[i].id == id) {
+            printf("Current quantity: %d\n", inventory[i].quantity);
+            printf("Enter new quantity: ");
+            scanf("%d", &qty);
+            inventory[i].quantity = qty;
+            printf("Quantity updated.\n");
+            return;
+        }
+    }
+    printf("Item not found.\n");
+}
+
+int main() {
+    int choice;
+    do {
+        printf("\n--- Inventory Menu ---\n");
+        printf("1. Add Item\n");
+        printf("2. Display Items\n");
+        printf("3. Update Quantity\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1: addItem(); break;
+            case 2: displayItems(); break;
+            case 3: updateQuantity(); break;
+            case 4: printf("Exiting...\n"); break;
+            default: printf("Invalid choice.\n");
+        }
+    } while(choice != 4);
+
+    return 0;
+}
+</pre>
+<nav>
+    &laquo;
+    <a href="index.html">Back to Home</a>
+</nav>
+</body>
+</html>

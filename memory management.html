@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C Memory Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0 20px 40px 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            padding-left: 400px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+        code {
+            font-family: Consolas, monospace;
+            color: #f8f8f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: black;
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+            color: black;
+            white-space: pre-wrap;
+        }
+        /* Header style */
+        .header {
+            background-color: green;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            padding: 0 10px;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            padding-left: 10px;
+            margin-right: 15px;
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width:680px) {
+            h1 {
+                padding-left: 50px;
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 18px;
+                color: white !important;
+                padding-left: 50px;
+            }
+            p {
+                font-size: 12px;
+                color: black;
+            }
+            .header {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY</h2>
+    </div>
+
+    <h1>C Memory Management</h1>
+
+    <p style="color: white;">This page explains how to manage memory dynamically in C using <code style="color: green">malloc()</code>, <code style="color: green">calloc()</code>, <code style="color: green">realloc()</code>, and <code style="color: green">free()</code>.</p>
+
+    <div class="section">
+        <h3>1. <code style="color: green">malloc()</code> - Allocate Memory</h3>
+        <p>Allocates a block of memory of given size (in bytes). Returns a pointer to the allocated memory.</p>
+        <pre><code>#include &lt;stdlib.h&gt;
+
+int *ptr = (int *)malloc(5 * sizeof(int)); // allocate memory for 5 integers
+if (ptr == NULL) {
+    // handle allocation failure
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h3>2. <code style="color: green">calloc()</code> - Allocate and Initialize Memory</h3>
+        <p>Allocates memory for an array of elements and initializes all bytes to zero.</p>
+        <pre><code>#include &lt;stdlib.h&gt;
+
+int *ptr = (int *)calloc(5, sizeof(int)); // allocate and zero initialize
+if (ptr == NULL) {
+    // handle allocation failure
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h3>3. <code style="color: green">realloc()</code> - Resize Allocated Memory</h3>
+        <p>Changes the size of previously allocated memory block.</p>
+        <pre><code>ptr = (int *)realloc(ptr, 10 * sizeof(int)); // resize to 10 integers
+if (ptr == NULL) {
+    // handle allocation failure
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h3>4. <code style="color: green">free()</code> - Deallocate Memory</h3>
+        <p>Frees previously allocated memory to avoid memory leaks.</p>
+        <pre><code>free(ptr);
+ptr = NULL; // good practice to avoid dangling pointer</code></pre>
+    </div>
+
+    <div class="section">
+        <h3>5. Example: Dynamic Array Using <code style="color: green">malloc()</code> and <code style="color: green">free()</code></h3>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int n = 5;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (int i = 0; i &lt; n; i++) {
+        arr[i] = i * 10;
+    }
+
+    for (int i = 0; i &lt; n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    free(arr);
+    return 0;
+}</code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">0 10 20 30 40 </div>
+    </div>
+
+</body>
+</html>

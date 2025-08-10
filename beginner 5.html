@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Prgrams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+         h2 {
+            color: white;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        code {
+            color: white;
+            font-family: monospace;
+        }  
+        a {
+        color: cyan;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <h2>1. Find Length of a String</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    printf("Length of string = %lu\n", strlen(str) - 1); // -1 to remove newline
+    return 0;
+}</code></pre>
+
+    <h2>2. Reverse a String</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char str[100];
+    int len, i;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    len = strlen(str) - 1; // Exclude newline
+    printf("Reversed string: ");
+    for(i = len - 1; i &gt;= 0; i--) {
+        printf("%c", str[i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+
+    <h2>3. Convert String to Uppercase</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+    char str[100];
+    int i;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    for(i = 0; str[i] != '\0'; i++) {
+        str[i] = toupper(str[i]);
+    }
+    printf("Uppercase: %s", str);
+    return 0;
+}</code></pre>
+
+    <h2>4. Count Characters in a String</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char str[100];
+    int count = 0, i;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    for(i = 0; str[i] != '\0'; i++) {
+        if(str[i] != ' ' &amp;&amp; str[i] != '\n')
+            count++;
+    }
+    printf("Number of characters (excluding spaces): %d\n", count);
+    return 0;
+}</code></pre>
+
+    <h2>5. Sort an Array of Integers</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[5], i, j, temp;
+    printf("Enter 5 integers: ");
+    for(i = 0; i &lt; 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for(i = 0; i &lt; 4; i++) {
+        for(j = i + 1; j &lt; 5; j++) {
+            if(arr[i] &gt; arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    printf("Sorted array: ");
+    for(i = 0; i &lt; 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+    &laquo;
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

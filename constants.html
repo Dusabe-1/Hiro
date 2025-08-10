@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Constants Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:black;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+                .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+        h1{
+            color: white;
+            padding-left: 400px;
+        }
+        p{
+            color: black;
+        }
+        @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                
+                font-size: 18px;
+            }
+             p{
+            font-size: 12px;
+        }
+        h2{
+                font-size: 18px;
+                color:white;padding-left: 90px;
+            }
+            .header{
+                background-color: green;
+                display: flex;
+                height: 45px;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C - Constants</h1>
+    <p style="color: white;">In C, a constant is a value that cannot be changed once it is assigned.  
+    Constants make programs safer, easier to maintain, and more readable.</p>
+
+    <div class="section">
+        <h3>1. Why Use Constants?</h3>
+        <ul>
+            <li>Prevent accidental modification of important values.</li>
+            <li>Make code easier to understand.</li>
+            <li>Allow easy updates — change the value in one place instead of many.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Types of Constants</h3>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Integer Constant</td>
+                <td><code>100</code></td>
+                <td>Whole numbers without decimal points.</td>
+            </tr>
+            <tr>
+                <td>Floating-point Constant</td>
+                <td><code>3.14</code></td>
+                <td>Numbers with decimal points or in scientific notation.</td>
+            </tr>
+            <tr>
+                <td>Character Constant</td>
+                <td><code>'A'</code></td>
+                <td>Single characters enclosed in single quotes.</td>
+            </tr>
+            <tr>
+                <td>String Constant</td>
+                <td><code>"Hello"</code></td>
+                <td>Sequence of characters enclosed in double quotes.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>3. Defining Constants</h3>
+        <h3>Using <code>const</code> Keyword</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    const float PI = 3.14; // Constant
+    int radius = 5;
+    float area = PI * radius * radius;
+
+    printf("Area = %.2f\n", area);
+    // PI = 3.1415; // Error: Cannot modify constant
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Area = 78.50</div>
+
+        <h3>Using <code>#define</code> Preprocessor Directive</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+#define PI 3.14
+
+int main() {
+    int radius = 5;
+    float area = PI * radius * radius;
+
+    printf("Area = %.2f\n", area);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Area = 78.50</div>
+    </div>
+
+    <div class="section">
+        <h3>4. <code>const</code> vs <code>#define</code></h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th><code>const</code></th>
+                <th><code>#define</code></th>
+            </tr>
+            <tr>
+                <td>Type Safety</td>
+                <td>Yes, type-checked by compiler</td>
+                <td>No type checking</td>
+            </tr>
+            <tr>
+                <td>Scope</td>
+                <td>Follows normal variable scope rules</td>
+                <td>Global (unless undefined later)</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td>Stored in memory</td>
+                <td>Replaced by preprocessor before compilation</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>5. Constant Expressions</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+#define LENGTH 10
+#define WIDTH 5
+#define AREA (LENGTH * WIDTH)
+
+int main() {
+    printf("Area = %d\n", AREA);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Area = 50</div>
+    </div>
+
+    <div class="section">
+        <h3>6. Enumerated Constants</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+enum Week { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+int main() {
+    enum Week today = WED;
+    printf("Day number: %d\n", today);
+    return 0;
+}
+        </code></pre>
+        <p><b>Output:</b></p>
+        <div class="output-box">Day number: 3</div>
+        <p>Enums create a set of named integer constants.</p>
+    </div>
+
+    <div class="section">
+        <h3>7. Best Practices</h3>
+        <ul>
+            <li>Use <code>const</code> for variables with a specific type.</li>
+            <li>Use <code>#define</code> for compile-time values and macros.</li>
+            <li>Always use uppercase names for constants (<code>MAX_VALUE</code>).</li>
+            <li>Keep constants descriptive to improve readability.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Data Types Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+        .header {
+            background-color: black;
+            display: flex;
+            align-items: center;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            padding-left: 10px;
+            border: none;
+            text-decoration: none;
+        }
+        h2 {
+            color: white;
+            padding-left: 300px;
+        }
+        h1 {
+            color: white;
+            padding-left: 400px;
+        }
+        p {
+            color: white;
+        }
+
+        /* RESPONSIVE FIX */
+        @media(max-width: 1024px) {
+            h1 {
+                padding-left: 0;
+                text-align: center;
+                font-size: 24px;
+            }
+            h2 {
+                padding-left: 0;
+                text-align: center;
+                font-size: 20px;
+            }
+        }
+        @media(max-width: 680px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                padding-left: 0;
+                font-size: 18px;
+                text-align: center;
+            }
+            h2 {
+                padding-left: 0;
+                font-size: 16px;
+                text-align: center;
+            }
+            p {
+                font-size: 12px;
+            }
+            table, th, td {
+                font-size: 12px;
+            }
+            .section {
+                padding: 10px;
+            }
+            pre {
+                font-size: 12px;
+            }
+            .output-box {
+                font-size: 12px;
+            }
+            h2{
+            padding-left: 60px;
+        }
+        .header{
+            background-color: green;
+            display: flex;
+        }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY </h2>
+</div>
+
+<h1>C - Data Types</h1>
+<p>In C, a data type tells the compiler what kind of value a variable will store.  
+It also determines the memory size, range, and operations that can be performed.</p>
+
+<div class="section">
+    <h3>1. Basic Data Types</h3>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Size (Typical)</th>
+            <th>Range</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>int</code></td>
+            <td>4 bytes</td>
+            <td>-2,147,483,648 to 2,147,483,647</td>
+            <td><code>int age = 25;</code></td>
+        </tr>
+        <tr>
+            <td><code>float</code></td>
+            <td>4 bytes</td>
+            <td>~1.2E-38 to 3.4E+38</td>
+            <td><code>float price = 9.99;</code></td>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td>8 bytes</td>
+            <td>~2.3E-308 to 1.7E+308</td>
+            <td><code>double pi = 3.1415926535;</code></td>
+        </tr>
+        <tr>
+            <td><code>char</code></td>
+            <td>1 byte</td>
+            <td>-128 to 127 (signed) or 0 to 255 (unsigned)</td>
+            <td><code>char grade = 'A';</code></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h3>2. Signed vs Unsigned</h3>
+    <p>C allows numbers to be either <b>signed</b> (can be negative) or <b>unsigned</b> (only positive).</p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    signed int a = -10;   // Can store negative
+    unsigned int b = 10;  // Cannot store negative
+
+    printf("a = %d\n", a);
+    printf("b = %u\n", b);
+    return 0;
+}
+    </code></pre>
+    <p><b>Output:</b></p>
+    <div class="output-box">
+a = -10<br>
+b = 10
+    </div>
+</div>
+
+<div class="section">
+    <h3>3. Short, Long, and Long Long</h3>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Size (Typical)</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>short int</code></td>
+            <td>2 bytes</td>
+            <td><code>short age = 120;</code></td>
+        </tr>
+        <tr>
+            <td><code>long int</code></td>
+            <td>4 or 8 bytes</td>
+            <td><code>long population = 7500000000;</code></td>
+        </tr>
+        <tr>
+            <td><code>long long int</code></td>
+            <td>8 bytes</td>
+            <td><code>long long stars = 9223372036854775807;</code></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h3>4. Type Modifiers</h3>
+    <ul>
+        <li><b>signed</b> – Allows negative and positive numbers.</li>
+        <li><b>unsigned</b> – Only positive numbers (doubles the positive range).</li>
+        <li><b>short</b> – Uses less memory, smaller range.</li>
+        <li><b>long</b> – Uses more memory, larger range.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h3>5. Derived Data Types</h3>
+    <ul>
+        <li><b>Arrays</b> – Collection of same-type elements.</li>
+        <li><b>Pointers</b> – Store memory addresses.</li>
+        <li><b>Structures</b> – Group of variables of different types.</li>
+        <li><b>Unions</b> – Share memory space between different members.</li>
+        <li><b>Enumerations</b> – User-defined constants.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h3>6. Example Program with Multiple Data Types</h3>
+    <pre><code>#include &lt;stdio.h&gt;
+
+struct Student {
+    char name[20];
+    int age;
+    float marks;
+};
+
+int main() {
+    int rollNo = 101;           // Integer
+    float percentage = 85.6;    // Float
+    double pi = 3.1415926535;   // Double
+    char grade = 'A';           // Character
+    unsigned int u = 300;       // Unsigned integer
+
+    struct Student s1 = {"Alice", 20, 92.5}; // Structure
+
+    printf("Roll No: %d\n", rollNo);
+    printf("Percentage: %.2f\n", percentage);
+    printf("Pi: %.10lf\n", pi);
+    printf("Grade: %c\n", grade);
+    printf("Unsigned: %u\n", u);
+    printf("Student: %s, Age: %d, Marks: %.1f\n", s1.name, s1.age, s1.marks);
+
+    return 0;
+}
+    </code></pre>
+    <p><b>Output:</b></p>
+    <div class="output-box">
+Roll No: 101<br>
+Percentage: 85.60<br>
+Pi: 3.1415926535<br>
+Grade: A<br>
+Unsigned: 300<br>
+Student: Alice, Age: 20, Marks: 92.5
+    </div>
+</div>
+
+<div class="section">
+    <h3>7. Best Practices</h3>
+    <ul>
+        <li>Use the smallest data type that fits the value.</li>
+        <li>Prefer <code>double</code> over <code>float</code> for more precision.</li>
+        <li>Use <code>unsigned</code> only when negative values are not needed.</li>
+        <li>Be aware that sizes can differ between systems (use <code>sizeof()</code> to check).</li>
+    </ul>
+</div>
+
+</body>
+</html>

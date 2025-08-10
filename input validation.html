@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C Input Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0 20px 40px 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            padding-left: 400px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+        code {
+            font-family: Consolas, monospace;
+            color: #f8f8f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: black;
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+            color: black;
+            white-space: pre-wrap;
+        }
+        /* Header style */
+        .header {
+            background-color: green;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            padding: 0 10px;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            padding-left: 10px;
+            margin-right: 15px;
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width:680px) {
+            h1 {
+                padding-left: 100px;
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 18px;
+                color: white !important;
+                padding-left: 50px;
+            }
+            p {
+                font-size: 12px;
+                color: black;
+            }
+            .header {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY</h2>
+    </div>
+
+    <h1>C Input Validation</h1>
+
+    <p style="color: white;">This page explains how to validate user inputs in C to ensure the data is correct and safe.</p>
+
+    <div class="section">
+        <h3>1. Validate Integer Input Using <code style="color: green">scanf()</code> Return Value</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    while (scanf("%d", &num) != 1) {
+        printf("Invalid input! Please enter an integer: ");
+        while (getchar() != '\n'); // clear invalid input
+    }
+    printf("You entered: %d\n", num);
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b> <code style="color: green">scanf()</code> returns the number of inputs successfully read. Loop until an integer is entered.</p>
+    </div>
+
+    <div class="section">
+        <h3>2. Validate String Input Using <code style="color: green">fgets()</code> and Check Length</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char name[20];
+    printf("Enter your name (max 19 chars): ");
+    fgets(name, sizeof(name), stdin);
+    
+    // Remove newline if present
+    name[strcspn(name, "\n")] = 0;
+
+    if (strlen(name) == 0) {
+        printf("Name cannot be empty.\n");
+    } else {
+        printf("Hello, %s!\n", name);
+    }
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b> Use <code style="color: green">fgets()</code> for safe string input and remove newline. Check if input is empty.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Validate Float Input</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    float value;
+    printf("Enter a floating point number: ");
+    while (scanf("%f", &value) != 1) {
+        printf("Invalid input! Please enter a float: ");
+        while (getchar() != '\n'); // clear buffer
+    }
+    printf("You entered: %.2f\n", value);
+    return 0;
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h3>4. Example: Validate Positive Integer</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    printf("Enter your age (positive integer): ");
+    while (scanf("%d", &age) != 1 || age &lt;= 0) {
+        printf("Invalid age! Enter a positive integer: ");
+        while (getchar() != '\n');
+    }
+    printf("Your age is %d\n", age);
+    return 0;
+}</code></pre>
+    </div>
+
+</body>
+</html>

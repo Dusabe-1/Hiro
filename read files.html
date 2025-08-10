@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C File Handling - Reading Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0 20px 40px 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            padding-left: 400px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+        code {
+            font-family: Consolas, monospace;
+            color: #f8f8f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: black;
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+            color: black;
+            white-space: pre-wrap;
+        }
+        /* Header style */
+        .header {
+            background-color: green;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            padding: 0 10px;
+        }
+        #open-btn {
+            background-color: transparent;
+            color: white;
+            font-size: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            padding-left: 10px;
+            margin-right: 15px;
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width:680px) {
+            h1 {
+                padding-left: 20px;
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 18px;
+                color: white !important;
+                padding-left: 50px;
+            }
+            p {
+                font-size: 12px;
+                color: black;
+            }
+            .header {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a id="open-btn" href="index.html">&#9776;</a>
+        <h2>HIRO ACADEMY</h2>
+    </div>
+
+    <h1>C File Handling - Reading Files</h1>
+
+    <p style="color: white;">This page explains how to read data from files in C using <code>fgetc()</code>, <code>fgets()</code>, and <code>fscanf()</code>.</p>
+
+    <div class="section">
+        <h3>1. Reading Character by Character Using <code style="color: green">fgetc()</code></h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("input.txt", "r");
+    if (fp == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    int ch;
+    while ((ch = fgetc(fp)) != EOF) {
+        putchar(ch);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b> Reads and prints each character until end of file.</p>
+    </div>
+
+    <div class="section">
+        <h3>2. Reading Line by Line Using <code style="color: green">fgets()</code></h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("input.txt", "r");
+    if (fp == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    char line[100];
+    while (fgets(line, sizeof(line), fp) != NULL) {
+        printf("%s", line);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b> Reads and prints each line until end of file.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Reading Formatted Data Using <code style="color: green">fscanf()</code></h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("data.txt", "r");
+    if (fp == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    int id;
+    char name[30];
+    float score;
+
+    while (fscanf(fp, "%d %s %f", &id, name, &score) == 3) {
+        printf("ID: %d, Name: %s, Score: %.2f\n", id, name, score);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+        <p><b>Explanation:</b> Reads formatted data (int, string, float) repeatedly until no more matches.</p>
+    </div>
+
+</body>
+</html>

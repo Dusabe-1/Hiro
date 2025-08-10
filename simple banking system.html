@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Banking System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        padding: 20px;
+    }
+    pre {
+        background: #222;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        color: white;
+    }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+      h1{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<h1>Simple Banking System</h1>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int choice;
+    double balance = 1000.00, amount;
+
+    do {
+        printf("\n--- Bank Menu ---\n");
+        printf("1. Deposit\n");
+        printf("2. Withdraw\n");
+        printf("3. Check Balance\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter amount to deposit: ");
+                scanf("%lf", &amount);
+                balance += amount;
+                printf("Deposited successfully.\n");
+                break;
+            case 2:
+                printf("Enter amount to withdraw: ");
+                scanf("%lf", &amount);
+                if (amount &lt;= balance) {
+                    balance -= amount;
+                    printf("Withdrawal successful.\n");
+                } else {
+                    printf("Insufficient funds.\n");
+                }
+                break;
+            case 3:
+                printf("Current balance: %.2lf\n", balance);
+                break;
+            case 4:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+</pre>
+<nav>
+      &laquo;
+    <a href="index.html">Back to Home</a>
+</nav>
+</body>
+</html>

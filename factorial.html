@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Factorial Program</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: #0f0;
+        padding: 20px;
+    }
+    pre {
+        background: #222;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+<h1>Factorial using Recursion</h1>
+<pre>
+#include &lt;stdio.h&gt;
+
+long factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+    printf("Factorial of %d = %ld\n", num, factorial(num));
+    return 0;
+}
+</pre>
+<nav>
+    <a href="prime.html">Next: Check Prime Number &raquo;</a>
+</nav>
+</body>
+</html>

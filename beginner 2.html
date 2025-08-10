@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h2 {
+            color: white;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        code {
+            color: white;
+            font-family: monospace;
+        }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <h2>1. Swap Two Numbers</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, temp;
+    printf("Enter first number: ");
+    scanf("%d", &a);
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("After swapping: a = %d, b = %d\n", a, b);
+    return 0;
+}</code></pre>
+
+    <h2>2. Multiply Two Floating Numbers</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    float num1, num2, result;
+    printf("Enter two floating numbers: ");
+    scanf("%f %f", &num1, &num2);
+    result = num1 * num2;
+    printf("Product = %.2f\n", result);
+    return 0;
+}</code></pre>
+
+    <h2>3. Calculate Area of a Circle</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    float radius, area;
+    const float PI = 3.1416;
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+    area = PI * radius * radius;
+    printf("Area = %.2f\n", area);
+    return 0;
+}</code></pre>
+
+    <h2>4. Simple Interest Calculation</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    float principal, rate, time, interest;
+    printf("Enter principal, rate, and time: ");
+    scanf("%f %f %f", &principal, &rate, &time);
+    interest = (principal * rate * time) / 100;
+    printf("Simple Interest = %.2f\n", interest);
+    return 0;
+}</code></pre>
+
+    <h2>5. Check Positive or Negative Number</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if(num > 0)
+        printf("%d is Positive\n", num);
+    else if(num < 0)
+        printf("%d is Negative\n", num);
+    else
+        printf("The number is Zero\n");
+    return 0;
+}</code></pre>
+    &laquo;
+    <a href="index.html">Back to Home</a>
+
+
+</body>
+</html>

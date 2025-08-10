@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming - Beginner Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h2 {
+            color: white;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #333;
+            color :white;
+        }
+        code {
+            color: white;
+            font-family: monospace;
+        }
+           
+            a {
+        color: cyan;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <h2>1. Add Two Numbers</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num1, num2, sum;
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    sum = num1 + num2;
+    printf("The sum is %d\n", sum);
+    return 0;
+}</code></pre>
+
+    <h2>2. Find Even or Odd</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if(num % 2 == 0)
+        printf("%d is Even\n", num);
+    else
+        printf("%d is Odd\n", num);
+    return 0;
+}</code></pre>
+
+    <h2>3. Print Numbers from 1 to 10</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for(int i = 1; i &lt;= 10; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}</code></pre>
+
+    <h2>4. Simple Calculator (Addition, Subtraction, Multiplication, Division)</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char op;
+    double num1, num2;
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &op);
+    printf("Enter two numbers: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    switch(op) {
+        case '+':
+            printf("Result: %.2lf\n", num1 + num2);
+            break;
+        case '-':
+            printf("Result: %.2lf\n", num1 - num2);
+            break;
+        case '*':
+            printf("Result: %.2lf\n", num1 * num2);
+            break;
+        case '/':
+            if(num2 != 0)
+                printf("Result: %.2lf\n", num1 / num2);
+            else
+                printf("Error! Division by zero.\n");
+            break;
+        default:
+            printf("Invalid operator\n");
+    }
+    return 0;
+}</code></pre>
+
+    <h2>5. Find the Largest Number</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    if(a >= b && a >= c)
+        printf("%d is the largest\n", a);
+    else if(b >= a && b >= c)
+        printf("%d is the largest\n", b);
+    else
+        printf("%d is the largest\n", c);
+    return 0;
+}</code></pre>
+    &laquo;
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Library Management System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        padding: 20px;
+    }
+    pre {
+        background: #222;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        color: white;
+    }
+    a {
+        color: cyan;
+        text-decoration: none;
+    }
+      h1{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<h1>Library Management System</h1>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX 100
+
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+    int isIssued;  // 0 = available, 1 = issued
+};
+
+struct Book library[MAX];
+int count = 0;
+
+void addBook() {
+    if (count &gt;= MAX) {
+        printf("Library is full!\n");
+        return;
+    }
+    printf("Enter Book ID: ");
+    scanf("%d", &library[count].id);
+    printf("Enter Title: ");
+    getchar(); // clear newline
+    fgets(library[count].title, sizeof(library[count].title), stdin);
+    library[count].title[strcspn(library[count].title, "\n")] = 0;
+    printf("Enter Author: ");
+    fgets(library[count].author, sizeof(library[count].author), stdin);
+    library[count].author[strcspn(library[count].author, "\n")] = 0;
+    library[count].isIssued = 0;
+    count++;
+    printf("Book added successfully!\n");
+}
+
+void displayBooks() {
+    if (count == 0) {
+        printf("No books in library.\n");
+        return;
+    }
+    printf("\nLibrary Books:\n");
+    for (int i = 0; i &lt; count; i++) {
+        printf("ID: %d | Title: %s | Author: %s | %s\n",
+               library[i].id,
+               library[i].title,
+               library[i].author,
+               library[i].isIssued ? "Issued" : "Available");
+    }
+}
+
+void issueBook() {
+    int id, i;
+    printf("Enter Book ID to issue: ");
+    scanf("%d", &id);
+    for (i = 0; i &lt; count; i++) {
+        if (library[i].id == id) {
+            if (library[i].isIssued == 0) {
+                library[i].isIssued = 1;
+                printf("Book issued successfully.\n");
+            } else {
+                printf("Book is already issued.\n");
+            }
+            return;
+        }
+    }
+    printf("Book not found.\n");
+}
+
+void returnBook() {
+    int id, i;
+    printf("Enter Book ID to return: ");
+    scanf("%d", &id);
+    for (i = 0; i &lt; count; i++) {
+        if (library[i].id == id) {
+            if (library[i].isIssued == 1) {
+                library[i].isIssued = 0;
+                printf("Book returned successfully.\n");
+            } else {
+                printf("Book was not issued.\n");
+            }
+            return;
+        }
+    }
+    printf("Book not found.\n");
+}
+
+int main() {
+    int choice;
+    do {
+        printf("\n--- Library Menu ---\n");
+        printf("1. Add Book\n");
+        printf("2. Display Books\n");
+        printf("3. Issue Book\n");
+        printf("4. Return Book\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1: addBook(); break;
+            case 2: displayBooks(); break;
+            case 3: issueBook(); break;
+            case 4: returnBook(); break;
+            case 5: printf("Exiting...\n"); break;
+            default: printf("Invalid choice.\n");
+        }
+    } while(choice != 5);
+
+    return 0;
+}
+</pre>
+<nav>
+    <a href="index.html">&laquo; Back to Home</a>
+</nav>
+</body>
+</html>

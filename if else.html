@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C- if else Statements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color:black;
+        }
+        h1{
+            color: #333;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-box {
+            background: #eee;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 5px;
+        }
+                .header{
+    background-color: black;
+}
+#open-btn{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding-left: 10px;
+    border: none;
+text-decoration: none;
+}
+
+        h1{
+            color: white;
+            padding-left: 300px;
+        }
+           @media(max-width:680px){
+            h1{
+                padding-left: 70px;
+                font-size: 18px;
+            }
+             p{
+            font-size: 12px;
+            color : black;
+        }
+                h2{
+                font-size: 18px;
+                color:white;padding-left: 90px;
+            }
+            .header{
+                background-color: green;
+                display: flex;
+                height: 45px;
+                
+            }
+        }
+         
+    </style>
+</head>
+<body>
+
+         <div class="header">
+    <a id="open-btn" href="index.html"> &#9776; </a>
+    <h2>HIRO ACADEMY </h2>
+</div>
+
+    <h1>C - if else Statements</h1>
+    <p style="color: white;">
+        In C, <b>if-else</b> statements are used to make decisions in the program based on conditions.
+        The condition is usually a boolean expression that evaluates to either <code>true</code> (non-zero) or <code>false</code> (0).
+    </p>
+
+    <div class="section">
+        <h3>1. Syntax of if</h3>
+        <pre><code>if (condition) {
+    // code to execute if condition is true
+}
+        </code></pre>
+        <p>If the <code>condition</code> is true, the block inside the braces is executed. If it's false, it is skipped.</p>
+    </div>
+
+    <div class="section">
+        <h3>2. Syntax of if-else</h3>
+        <pre><code>if (condition) {
+    // code if condition is true
+} else {
+    // code if condition is false
+}
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h3>3. Syntax of if-else if-else Ladder</h3>
+        <pre><code>if (condition1) {
+    // code if condition1 is true
+} else if (condition2) {
+    // code if condition2 is true
+} else {
+    // code if none of the above conditions are true
+}
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h3>4. Example - Simple if</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int number = 10;
+
+    if (number > 5) {
+        printf("Number is greater than 5\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <div class="output-box">
+Number is greater than 5
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>5. Example - if-else</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 16;
+
+    if (age >= 18) {
+        printf("You are an adult.\n");
+    } else {
+        printf("You are a minor.\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <div class="output-box">
+You are a minor.
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>6. Example - if-else if-else Ladder</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int marks = 85;
+
+    if (marks >= 90) {
+        printf("Grade: A+\n");
+    } else if (marks >= 75) {
+        printf("Grade: A\n");
+    } else if (marks >= 50) {
+        printf("Grade: B\n");
+    } else {
+        printf("Grade: F\n");
+    }
+
+    return 0;
+}
+        </code></pre>
+        <div class="output-box">
+Grade: A
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>7. Notes</h3>
+        <ul>
+            <li>Conditions inside <code>if</code> must be enclosed in parentheses.</li>
+            <li>Only the block after the first <code>true</code> condition is executed in an <code>if-else if</code> chain.</li>
+            <li>If you omit braces <code>{}</code> for single-line statements, only that single line will be part of the condition.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
